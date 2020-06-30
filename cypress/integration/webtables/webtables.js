@@ -5,7 +5,7 @@ describe('webtables way to automate adding users.', function() {
     beforeEach(() => {
         cy.visit('/webtables')
         cy.fixture('userData').then(function(data) {
-            this.data=data
+            this.data=data  
         })
     })
     
@@ -22,18 +22,7 @@ describe('webtables way to automate adding users.', function() {
             .should('be.visible')  
     })
 
-    it('add user one with the following details.', function() {
-        
-        function firstSetOfRandomDigits(len){
-            let numberOfDigits='';
-           for(let digits=0;digits<len;digits++){
-            numberOfDigits+=Math.floor(Math.random() * 10)
-           };
-           return numberOfDigits;
-        }
-
-        let randomNumForUserOne = firstSetOfRandomDigits(12)
-        let resultForUserOne = randomNumForUserOne.toString()
+    it('add user one with the following details.', function(randomDigitsUserOne=Math.floor(Math.random() * 1000000000000)) {
         
         cy
             .contains(' Add User')
@@ -54,7 +43,7 @@ describe('webtables way to automate adding users.', function() {
         cy
             .get('input[name="UserName"]')
             .should('be.empty')
-            .type(this.data.userOneUserName + resultForUserOne)
+            .type(this.data.userOneUserName + randomDigitsUserOne)
 
         cy
             .get('input[name="Password"]')
@@ -65,6 +54,7 @@ describe('webtables way to automate adding users.', function() {
             .get('[type="radio"]')
             .should('have.value', '15')
             .check('15')
+
         cy
             .get('select')
             .select(this.data.userOneRole)
@@ -87,21 +77,10 @@ describe('webtables way to automate adding users.', function() {
 
         cy
             .get('tr')
-            .contains(this.data.userOneUserName + resultForUserOne)
+            .contains(this.data.userOneUserName + randomDigitsUserOne)
     })
 
-    it('add user two with the following details.', function() {
-
-        function secondSetOfRandomDigits(len){
-            let numberOfDigits='';
-           for(let digits=0;digits<len;digits++){
-            numberOfDigits+=Math.floor(Math.random() * 10)
-           };
-           return numberOfDigits;
-        }
-
-        let randomNumForUserTwo = secondSetOfRandomDigits(12)
-        let resultForUserTwo = randomNumForUserTwo.toString()
+    it('add user two with the following details.', function(randomDigitsUserTwo =Math.floor(Math.random() * 1000000000000)) {
         
         cy
             .contains(' Add User')
@@ -122,7 +101,7 @@ describe('webtables way to automate adding users.', function() {
         cy
             .get('input[name="UserName"]')
             .should('be.empty')
-            .type(this.data.userTwoUserName + resultForUserTwo)
+            .type(this.data.userTwoUserName + randomDigitsUserTwo)
 
         cy
             .get('input[name="Password"]')
@@ -156,6 +135,6 @@ describe('webtables way to automate adding users.', function() {
             
         cy
             .get('tr')
-            .contains(this.data.userTwoUserName + resultForUserTwo)    
+            .contains(this.data.userTwoUserName + randomDigitsUserTwo)    
     })
 })
