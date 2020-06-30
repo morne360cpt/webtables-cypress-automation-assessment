@@ -4,6 +4,9 @@ describe('webtables way to automate adding users.', function() {
 
     beforeEach(() => {
         cy.visit('/webtables')
+        cy.fixture('userData').then(function(data) {
+            this.data=data
+        })
     })
     
     it('validate you are on the user list table.', function() {
@@ -41,22 +44,22 @@ describe('webtables way to automate adding users.', function() {
         cy  
             .get('input[name="FirstName"]')
             .should('be.empty')
-            .type('FName1')
+            .type(this.data.userOneFirstName)
 
         cy
             .get('input[name="LastName"]')
             .should('be.empty')
-            .type('LName1')
+            .type(this.data.userOneLastName)
 
         cy
             .get('input[name="UserName"]')
             .should('be.empty')
-            .type('User1_' + resultForUserOne)
+            .type(this.data.userOneUserName + resultForUserOne)
 
         cy
             .get('input[name="Password"]')
             .should('be.empty')
-            .type('Pass1')
+            .type(this.data.userOnePassword)
 
         cy
             .get('[type="radio"]')
@@ -64,17 +67,17 @@ describe('webtables way to automate adding users.', function() {
             .check('15')
         cy
             .get('select')
-            .select('Admin')
+            .select(this.data.userOneRole)
             .should('have.value', '2')
 
         cy
             .get('input[name="Email"]')
             .should('be.empty')
-            .type('admin@mail.com')
+            .type(this.data.userOneEmail)
         cy
             .get('input[name="Mobilephone"]')
             .should('be.empty')
-            .type('082555')
+            .type(this.data.userOneMobilePhone)
 
         cy
             .get('.btn-success')
@@ -84,7 +87,7 @@ describe('webtables way to automate adding users.', function() {
 
         cy
             .get('tr')
-            .contains('User1_' + resultForUserOne)
+            .contains(this.data.userOneUserName + resultForUserOne)
     })
 
     it('add user two with the following details.', function() {
@@ -109,22 +112,22 @@ describe('webtables way to automate adding users.', function() {
         cy
             .get('input[name="FirstName"]')
             .should('be.empty')
-            .type('FName2')
+            .type(this.data.userTwoFirstName)
 
         cy
             .get('input[name="LastName"]')
             .should('be.empty')
-            .type('LName2')
+            .type(this.data.userTwoLastName)
 
         cy
             .get('input[name="UserName"]')
             .should('be.empty')
-            .type('User2_' + resultForUserTwo)
+            .type(this.data.userTwoUserName + resultForUserTwo)
 
         cy
             .get('input[name="Password"]')
             .should('be.empty')
-            .type('Pass2')
+            .type(this.data.userTwoPassword)
 
         cy
             .get('[type="radio"]')
@@ -132,18 +135,18 @@ describe('webtables way to automate adding users.', function() {
 
         cy
             .get('select')
-            .select('Customer')
+            .select(this.data.userTwoRole)
             .should('have.value', '1')
 
         cy
             .get('input[name="Email"]')
             .should('be.empty')
-            .type('customer@mail.com')
+            .type(this.data.userTwoEmail)
 
         cy
             .get('input[name="Mobilephone"]')
             .should('be.empty')
-            .type('083444')
+            .type(this.data.userTwoMobilePhone)
         
         cy
             .get('.btn-success')
@@ -153,6 +156,6 @@ describe('webtables way to automate adding users.', function() {
             
         cy
             .get('tr')
-            .contains('User2_' + resultForUserTwo)    
+            .contains(this.data.userTwoUserName + resultForUserTwo)    
     })
 })

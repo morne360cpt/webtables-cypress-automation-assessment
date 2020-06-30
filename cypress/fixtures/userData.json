@@ -1,0 +1,16 @@
+{
+    "userOneFirstName": "FName1",
+    "userOneLastName": "LName1",
+    "userOneUserName": "User1_",
+    "userOnePassword": "Pass1",
+    "userOneRole": "Admin",
+    "userOneEmail": "admin@mail.com",
+    "userOneMobilePhone": "082555",
+    "userTwoFirstName": "FName2",
+    "userTwoLastName": "LName2",
+    "userTwoUserName": "User2_",
+    "userTwoPassword": "Pass2",
+    "userTwoRole": "Customer",
+    "userTwoEmail": "customer@mail.com",
+    "userTwoMobilePhone": "083444"
+  }
