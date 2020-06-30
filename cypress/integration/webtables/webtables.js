@@ -84,7 +84,7 @@ describe('webtables way to automate adding users.', function() {
 
         cy
             .get('tr')
-            .contains('User1_' + result)
+            .contains('User1_' + resultForUserOne)
     })
 
     it('add user two with the following details.', function() {
@@ -153,6 +153,6 @@ describe('webtables way to automate adding users.', function() {
             
         cy
             .get('tr')
-            .contains('User2_' + result)    
+            .contains('User2_' + resultForUserTwo)    
     })
 })
