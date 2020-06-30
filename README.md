@@ -1,6 +1,6 @@
 # Webtables - Way to Automation - Cypress QA AUTOMATION ASSESSMENT
 
-The goal of this repository is to create automation test cases for the Dog Ceo API - QA AUTOMATION ASSESSMENT.
+The goal of this repository is to create automation test cases for the way to automate webtables - QA AUTOMATION ASSESSMENT.
 
 The **cypress/integration** folder is where all tests are found and it is structured in the appropriate folder
 linked to each test spec.
